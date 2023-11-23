@@ -7,16 +7,16 @@ import MyLink from '../components/Link';
 const linksRaw = [
   // NOTE: The order of these items matter
   {
-    name: 'booksPage',
-    checkIsCurrentPage: ({ pathname }) => /^\/books/.test(pathname),
-    to: '/books',
-    text: 'Books',
+    name: 'page1',
+    text: 'Page 1',
+    checkIsCurrentPage: ({ pathname }) => /^\/react-table/.test(pathname),
+    to: '/react-table',
   },
   {
-    name: 'favoritesPage',
-    checkIsCurrentPage: ({ pathname }) => /^\/favorites/.test(pathname),
-    to: '/favorites',
-    text: 'My Favorites',
+    name: 'page2',
+    text: 'Page 2',
+    checkIsCurrentPage: ({ pathname }) => /^\/handsontable/.test(pathname),
+    to: '/handsontable',
   },
 ];
 
