@@ -68,7 +68,6 @@
     "es6": true // Solved Promise is not defined.
   },
   "globals": {
-    "module": true,
     "myCache": true,
     "redisClient": true,
     "defaultUser": true,
@@ -155,7 +154,7 @@
     "import/first": "error", // <--- I want the imports to be the first thing to appear in every file.
     "import/exports-last": "error", // <--- Ensure all exports appear after other statements.
     // - about import/extensions = Ensures consistent use of file extension on import path. it also had ""always", { ignorePackages: true }", which made internal packages fail at runtime if I enable this (api-gateway is an example case).
-    "import/extensions": ["error", "never", { "js": "always" }],
+    "import/extensions": ["error", "never", { "js": "never" }],
     "import/order": [
       // The given rule enforces a convention in the order of require() / import statements!
       "error",

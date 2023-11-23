@@ -1,26 +1,23 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import path from 'path';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+const PORT = process.env.PORT || 3000;
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   root: `${process.cwd()}/src`, // default value is: process.cwd(). My workplace put './src'. root is the project's root directory, where index.html is located. Can be an absolute path, or a path relative to the current working directory.
   publicDir: './public', // default is "public". The location of the public dir relative to the index.html file.
   base: '/', // default value is '/'. My workplace put '/app/' Base public path when served in development or production.
   server: {
-    port: process.env.VITE_PORT, // Note if this port is already being used, Vite will automatically try the next available port so this may not be the actual port the server ends up listening on.
+    port: +PORT, // Note if this port is already being used, Vite will automatically try the next available port so this may not be the actual port the server ends up listening on.
     strictPort: true, // default is false. Set to true to exit if port is already in use, instead of automatically trying the next available port.
-    open: process.env.NODE_ENV === 'development', // default is false. Automatically opens the app in the browser on server start. You can specify a URL's pathname i.e a string instead of true, and it will open that page.
-    // watch: { usePolling: true }, // When running Vite on Windows Subsystem for Linux (WSL) 2, if the project folder resides in a Windows filesystem, you'll need to set this option to { usePolling: true }. This is due to a WSL2 limitation with the Windows filesystem. The Vite server watcher skips .git/ and node_modules/ directories by default.
+    open: true, // default is false. Automatically opens the app in the browser on server start. You can specify a URL's pathname i.e a string instead of true, and it will open that page.
+    watch: { usePolling: true }, // When running Vite on Windows Subsystem for Linux (WSL) 2, if the project folder resides in a Windows filesystem, you'll need to set this option to { usePolling: true }. This is due to a WSL2 limitation with the Windows filesystem. The Vite server watcher skips .git/ and node_modules/ directories by default.
   },
-  resolve: {
-    alias: {
-      '@src': path.resolve(__dirname, 'src'),
-      '@common': path.resolve(rootDir, 'packages/common/src'),
-      '@statistics': path.resolve(rootDir, 'packages/statistics/src'),
-    },
-  },
-  plugins: [react(), webpackStats()], // <--- webpackStats - `fileName` defaults to "webpack-stats.json". It's the JSON file's output name.
-  envDir: path.resolve(rootDir, 'envs'),
+  resolve: {},
+  plugins: [react()], // <--- webpackStats - `fileName` defaults to "webpack-stats.json". It's the JSON file's output name.
+  envDir: path.resolve('envs'),
   clearScreen: false, // <--- default is true. false prevents Vite from clearing the terminal screen when logging certain messages
   logLevel: 'info', // <--- default is info. Options are: info, warn, error, silent
   // envPrefix: 'VITE_', // <--- default is VITE_
@@ -40,28 +37,8 @@ export default defineConfig({
     assetsInlineLimit: 4096, // <--- default is 4096. Imported or referenced assets that are smaller than this threshold will be inlined as base64 URLs to avoid extra http requests. Set to 0 to disable inlining altogether.
     cssCodeSplit: true, // <--- default is true. Enable/disable CSS code splitting. When enabled, CSS imported in async chunks will be inlined into the async chunk itself and inserted when the chunk is loaded. If disabled, all CSS in the entire project will be extracted into a single CSS file.
     cssMinify: 'esbuild', // <--- Options are: 'esbuild' (default) | 'lightningcss'.
-    // rollupOptions: {
-    //   output: {
-    //     manualChunks: (id) => {
-    //       // This is how I do dynamic chunk naming.
-    //       // Example uses:
-    //       // import("some/module/index?chunkName=my-custom-chunk-name")
-    //       // import MyComponent from "some/component.vue?chunkName=restricted_path/my-custom-chunk-name"
-    //       if (id.includes('?chunkName=') || id.includes('&chunkName=')) {
-    //         let name = id.match(/(?<=chunkName=)(.*)(?=&)|(?<=chunkName=)(.*)/gm);
-    //         if (name[0]) return name[0];
-    //       }
-
-    //       // Vendor Chunks
-    //       if (id.includes('node_modules')) return 'vendor';
-
-    //       // Here's the odd fix. You cannot return void, it must return a string
-    //       return 'index';
-    //     },
-    //   },
-    // },
   },
-  preview: { port: process.env.VITE_PORT ?? 3000, strictPort: true, open: true }, // When running `npm run preview` locally, no loadEnvVariables process occurs, so VITE_PORT would be undefined. On a CI however, there are always ENV VARIABLES set in the global scope so it *would* work.
+  preview: { port: +PORT, strictPort: true, open: true }, // When running `npm run preview` locally, no loadEnvVariables process occurs, so VITE_PORT would be undefined. On a CI however, there are always ENV VARIABLES set in the global scope so it *would* work.
   css: {
     modules: {
       generateScopedName: mode === 'development' ? '[name].[local].[hash:base64:3]' : '[hash:base64:7]',
@@ -101,4 +78,4 @@ export default defineConfig({
     // passWithNoTests: true, // default value is false. if true, Vitest will not fail, if no tests will be found.
     // testNamePattern: 'OnlyRunThis', // default value is undefined. Use this property when wanting to test a single suite test. Only run tests that their full name includes this property's value (i.e. value is OnlyRunThis, and test is "test('OnlyRunThis',... )"). Tests which don't match pattern will get skipped.
   },
-})
+}));
