@@ -1,10 +1,13 @@
 import React from 'react';
-import './index.css';
+import { registerAllModules } from 'handsontable/registry';
 import ReactDOM from 'react-dom/client';
-import 'handsontable/dist/handsontable.full.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import App from './layout/App';
 import DarkThemeProvider from './providers/DarkThemeProvider';
+import 'handsontable/dist/handsontable.full.min.css';
+import './index.css';
+
+registerAllModules();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
