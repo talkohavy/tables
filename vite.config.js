@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => ({
     watch: { usePolling: true }, // When running Vite on Windows Subsystem for Linux (WSL) 2, if the project folder resides in a Windows filesystem, you'll need to set this option to { usePolling: true }. This is due to a WSL2 limitation with the Windows filesystem. The Vite server watcher skips .git/ and node_modules/ directories by default.
   },
   resolve: {},
-  plugins: [react()], // <--- webpackStats - `fileName` defaults to "webpack-stats.json". It's the JSON file's output name.
+  plugins: [react()],
   envDir: path.resolve('envs'),
   clearScreen: false, // <--- default is true. false prevents Vite from clearing the terminal screen when logging certain messages
   logLevel: 'info', // <--- default is info. Options are: info, warn, error, silent

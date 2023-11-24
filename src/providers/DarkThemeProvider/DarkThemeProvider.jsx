@@ -16,6 +16,9 @@ export default function DarkThemeProvider({ children }) {
 
     const currentTheme = localStorageTheme || deviceTheme;
 
+    // @ts-ignore
+    const [htmlElement] = document.getElementsByTagName('html');
+    htmlElement.setAttribute('data-theme', currentTheme);
     document.body.setAttribute('class', currentTheme);
 
     return currentTheme === THEME_OPTIONS.dark;
@@ -25,7 +28,12 @@ export default function DarkThemeProvider({ children }) {
   const toggleDarkMode = useCallback(() => {
     const themeToBe = isDarkMode ? THEME_OPTIONS.light : THEME_OPTIONS.dark;
     setLocalStorageTheme(themeToBe);
+
+    // @ts-ignore
+    const [htmlElement] = document.getElementsByTagName('html');
+    htmlElement.setAttribute('data-theme', themeToBe);
     document.body.setAttribute('class', themeToBe);
+
     setIsDarkMode(!isDarkMode);
   }, [isDarkMode, setIsDarkMode, setLocalStorageTheme]);
 

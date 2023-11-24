@@ -1,0 +1,600 @@
+html[data-theme='dark'] :root {
+  --surface-a: #2a323d;
+  --surface-b: #20262e;
+  --surface-c: rgba(255, 255, 255, 0.04);
+  --surface-d: #3f4b5b;
+  --surface-e: #2a323d;
+  --surface-f: #2a323d;
+  --text-color: rgba(255, 255, 255, 0.87);
+  --text-color-secondary: rgba(255, 255, 255, 0.6);
+  --primary-color: #8dd0ff;
+  --primary-color-text: #151515;
+  --font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol;
+  --surface-0: #20262e;
+  --surface-50: #363c43;
+  --surface-100: #4d5158;
+  --surface-200: #63676d;
+  --surface-300: #797d82;
+  --surface-400: #909397;
+  --surface-500: #a6a8ab;
+  --surface-600: #bcbec0;
+  --surface-700: #d2d4d5;
+  --surface-800: #e9e9ea;
+  --surface-900: #ffffff;
+  --gray-50: #e9e9ea;
+  --gray-100: #d2d4d5;
+  --gray-200: #bcbec0;
+  --gray-300: #a6a8ab;
+  --gray-400: #909397;
+  --gray-500: #797d82;
+  --gray-600: #63676d;
+  --gray-700: #4d5158;
+  --gray-800: #363c43;
+  --gray-900: #20262e;
+  --content-padding: 1.25rem;
+  --inline-spacing: 0.5rem;
+  --border-radius: 4px;
+  --surface-ground: #20262e;
+  --surface-section: #20262e;
+  --surface-card: #2a323d;
+  --surface-overlay: #2a323d;
+  --surface-border: #3f4b5b;
+  --surface-hover: rgba(255, 255, 255, 0.04);
+  --focus-ring: 0 0 0 1px #e3f3fe;
+  --maskbg: rgba(0, 0, 0, 0.4);
+  --highlight-bg: #8dd0ff;
+  --highlight-text-color: #151515;
+  color-scheme: dark;
+  --blue-50: #f3f8ff;
+  --blue-100: #c5dcff;
+  --blue-200: #97c1fe;
+  --blue-300: #69a5fe;
+  --blue-400: #3b8afd;
+  --blue-500: #0d6efd;
+  --blue-600: #0b5ed7;
+  --blue-700: #094db1;
+  --blue-800: #073d8b;
+  --blue-900: #052c65;
+  --green-50: #f4f9f6;
+  --green-100: #c8e2d6;
+  --green-200: #9ccbb5;
+  --green-300: #70b595;
+  --green-400: #459e74;
+  --green-500: #198754;
+  --green-600: #157347;
+  --green-700: #125f3b;
+  --green-800: #0e4a2e;
+  --green-900: #0a3622;
+  --yellow-50: #fffcf3;
+  --yellow-100: #fff0c3;
+  --yellow-200: #ffe494;
+  --yellow-300: #ffd965;
+  --yellow-400: #ffcd36;
+  --yellow-500: #ffc107;
+  --yellow-600: #d9a406;
+  --yellow-700: #b38705;
+  --yellow-800: #8c6a04;
+  --yellow-900: #664d03;
+  --cyan-50: #f3fcfe;
+  --cyan-100: #c5f2fb;
+  --cyan-200: #97e8f9;
+  --cyan-300: #69def6;
+  --cyan-400: #3bd4f3;
+  --cyan-500: #0dcaf0;
+  --cyan-600: #0baccc;
+  --cyan-700: #098da8;
+  --cyan-800: #076f84;
+  --cyan-900: #055160;
+  --pink-50: #fdf5f9;
+  --pink-100: #f5cee1;
+  --pink-200: #eda7ca;
+  --pink-300: #e681b3;
+  --pink-400: #de5a9b;
+  --pink-500: #d63384;
+  --pink-600: #b62b70;
+  --pink-700: #96245c;
+  --pink-800: #761c49;
+  --pink-900: #561435;
+  --indigo-50: #f7f3fe;
+  --indigo-100: #dac6fc;
+  --indigo-200: #bd98f9;
+  --indigo-300: #a06bf7;
+  --indigo-400: #833df4;
+  --indigo-500: #6610f2;
+  --indigo-600: #570ece;
+  --indigo-700: #470ba9;
+  --indigo-800: #380985;
+  --indigo-900: #290661;
+  --teal-50: #f4fcfa;
+  --teal-100: #c9f2e6;
+  --teal-200: #9fe8d2;
+  --teal-300: #75debf;
+  --teal-400: #4ad3ab;
+  --teal-500: #20c997;
+  --teal-600: #1bab80;
+  --teal-700: #168d6a;
+  --teal-800: #126f53;
+  --teal-900: #0d503c;
+  --orange-50: #fff9f3;
+  --orange-100: #ffe0c7;
+  --orange-200: #fec89a;
+  --orange-300: #feaf6d;
+  --orange-400: #fd9741;
+  --orange-500: #fd7e14;
+  --orange-600: #d76b11;
+  --orange-700: #b1580e;
+  --orange-800: #8b450b;
+  --orange-900: #653208;
+  --bluegray-50: #f8f9fb;
+  --bluegray-100: #e0e4ea;
+  --bluegray-200: #c7ced9;
+  --bluegray-300: #aeb9c8;
+  --bluegray-400: #95a3b8;
+  --bluegray-500: #7c8ea7;
+  --bluegray-600: #69798e;
+  --bluegray-700: #576375;
+  --bluegray-800: #444e5c;
+  --bluegray-900: #323943;
+  --purple-50: #f8f6fc;
+  --purple-100: #dcd2f0;
+  --purple-200: #c1aee4;
+  --purple-300: #a68ad9;
+  --purple-400: #8a66cd;
+  --purple-500: #6f42c1;
+  --purple-600: #5e38a4;
+  --purple-700: #4e2e87;
+  --purple-800: #3d246a;
+  --purple-900: #2c1a4d;
+  --red-50: #fdf5f6;
+  --red-100: #f7cfd2;
+  --red-200: #f0a8af;
+  --red-300: #e9828c;
+  --red-400: #e35b68;
+  --red-500: #dc3545;
+  --red-600: #bb2d3b;
+  --red-700: #9a2530;
+  --red-800: #791d26;
+  --red-900: #58151c;
+  --primary-50: #f9fdff;
+  --primary-100: #e4f4ff;
+  --primary-200: #ceebff;
+  --primary-300: #b8e2ff;
+  --primary-400: #a3d9ff;
+  --primary-500: #8dd0ff;
+  --primary-600: #78b1d9;
+  --primary-700: #6392b3;
+  --primary-800: #4e728c;
+  --primary-900: #385366;
+}
+
+html[data-theme='dark'] .p-datatable .p-paginator-top {
+  border-width: 0;
+  border-radius: 0;
+}
+html[data-theme='dark'] .p-datatable .p-paginator-bottom {
+  border-width: 1px 0 0 0;
+  border-radius: 0;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-header {
+  background: #2a323d;
+  color: rgba(255, 255, 255, 0.6);
+  border: solid #3f4b5b;
+  border-width: 1px 0 0 0;
+  padding: 1rem 1rem;
+  font-weight: 600;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-footer {
+  background: #2a323d;
+  color: rgba(255, 255, 255, 0.87);
+  border: 1px solid #3f4b5b;
+  border-width: 1px 0 1px 0;
+  padding: 1rem 1rem;
+  font-weight: 600;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-thead > tr > th {
+  text-align: left;
+  padding: 1rem 1rem;
+  border: 1px solid #3f4b5b;
+  border-width: 1px 0 2px 0;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.87);
+  background: #2a323d;
+  transition: box-shadow 0.15s;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-tfoot > tr > td {
+  text-align: left;
+  padding: 1rem 1rem;
+  border: 1px solid #3f4b5b;
+  border-width: 1px 0 1px 0;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.87);
+  background: #2a323d;
+}
+html[data-theme='dark'] .p-datatable .p-sortable-column .p-sortable-column-icon {
+  color: rgba(255, 255, 255, 0.6);
+  margin-left: 0.5rem;
+}
+html[data-theme='dark'] .p-datatable .p-sortable-column .p-sortable-column-badge {
+  border-radius: 50%;
+  height: 1.143rem;
+  min-width: 1.143rem;
+  line-height: 1.143rem;
+  color: #151515;
+  background: #8dd0ff;
+  margin-left: 0.5rem;
+}
+html[data-theme='dark'] .p-datatable .p-sortable-column:not(.p-highlight):not(.p-sortable-disabled):hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.87);
+}
+html[data-theme='dark']
+  .p-datatable
+  .p-sortable-column:not(.p-highlight):not(.p-sortable-disabled):hover
+  .p-sortable-column-icon {
+  color: rgba(255, 255, 255, 0.87);
+}
+html[data-theme='dark'] .p-datatable .p-sortable-column.p-highlight {
+  background: #2a323d;
+  color: #8dd0ff;
+}
+html[data-theme='dark'] .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
+  color: #8dd0ff;
+}
+html[data-theme='dark'] .p-datatable .p-sortable-column.p-highlight:not(.p-sortable-disabled):hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: #8dd0ff;
+}
+html[data-theme='dark']
+  .p-datatable
+  .p-sortable-column.p-highlight:not(.p-sortable-disabled):hover
+  .p-sortable-column-icon {
+  color: #8dd0ff;
+}
+html[data-theme='dark'] .p-datatable .p-sortable-column:focus {
+  box-shadow: inset 0 0 0 0.15rem #e3f3fe;
+  outline: 0 none;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr {
+  background: #2a323d;
+  color: rgba(255, 255, 255, 0.87);
+  transition: box-shadow 0.15s;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr > td {
+  text-align: left;
+  border: 1px solid #3f4b5b;
+  border-width: 1px 0 0 0;
+  padding: 1rem 1rem;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr > td .p-row-toggler,
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr > td .p-row-editor-init,
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr > td .p-row-editor-save,
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr > td .p-row-editor-cancel {
+  width: 2rem;
+  height: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+  border: 0 none;
+  background: transparent;
+  border-radius: 50%;
+  transition:
+    color 0.15s,
+    box-shadow 0.15s;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr > td .p-row-toggler:enabled:hover,
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr > td .p-row-editor-init:enabled:hover,
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr > td .p-row-editor-save:enabled:hover,
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr > td .p-row-editor-cancel:enabled:hover {
+  color: rgba(255, 255, 255, 0.87);
+  border-color: transparent;
+  background: transparent;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr > td .p-row-toggler:focus,
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr > td .p-row-editor-init:focus,
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr > td .p-row-editor-save:focus,
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr > td .p-row-editor-cancel:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 1px #e3f3fe;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr > td .p-row-editor-save {
+  margin-right: 0.5rem;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr > td > .p-column-title {
+  font-weight: 600;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr > td.p-highlight {
+  background: #8dd0ff;
+  color: #151515;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr.p-highlight {
+  background: #8dd0ff;
+  color: #151515;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {
+  box-shadow: inset 0 2px 0 0 #8dd0ff;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {
+  box-shadow: inset 0 -2px 0 0 #8dd0ff;
+}
+html[data-theme='dark']
+  .p-datatable.p-datatable-selectable
+  .p-datatable-tbody
+  > tr.p-selectable-row:not(.p-highlight):not(.p-datatable-emptymessage):hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.87);
+}
+html[data-theme='dark'] .p-datatable.p-datatable-selectable .p-datatable-tbody > tr.p-selectable-row:focus {
+  outline: 0.15rem solid #e3f3fe;
+  outline-offset: -0.15rem;
+}
+html[data-theme='dark']
+  .p-datatable.p-datatable-selectable-cell
+  .p-datatable-tbody
+  > tr.p-selectable-row
+  > td.p-selectable-cell:not(.p-highlight):hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.87);
+}
+html[data-theme='dark']
+  .p-datatable.p-datatable-selectable-cell
+  .p-datatable-tbody
+  > tr.p-selectable-row
+  > td.p-selectable-cell:focus {
+  outline: 0.15rem solid #e3f3fe;
+  outline-offset: -0.15rem;
+}
+html[data-theme='dark']
+  .p-datatable.p-datatable-hoverable-rows
+  .p-datatable-tbody
+  > tr:not(.p-highlight):not(.p-datatable-emptymessage):hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.87);
+}
+html[data-theme='dark'] .p-datatable .p-column-resizer-helper {
+  background: #8dd0ff;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-scrollable-header,
+html[data-theme='dark'] .p-datatable .p-datatable-scrollable-footer {
+  background: #2a323d;
+}
+html[data-theme='dark']
+  .p-datatable.p-datatable-scrollable
+  > .p-datatable-wrapper
+  > .p-datatable-table
+  > .p-datatable-thead,
+html[data-theme='dark']
+  .p-datatable.p-datatable-scrollable
+  > .p-datatable-wrapper
+  > .p-datatable-table
+  > .p-datatable-tfoot,
+html[data-theme='dark']
+  .p-datatable.p-datatable-scrollable
+  > .p-datatable-wrapper
+  > .p-virtualscroller
+  > .p-datatable-table
+  > .p-datatable-thead,
+html[data-theme='dark']
+  .p-datatable.p-datatable-scrollable
+  > .p-datatable-wrapper
+  > .p-virtualscroller
+  > .p-datatable-table
+  > .p-datatable-tfoot {
+  background-color: #2a323d;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-loading-icon {
+  font-size: 2rem;
+}
+html[data-theme='dark'] .p-datatable .p-datatable-loading-icon.p-icon {
+  width: 2rem;
+  height: 2rem;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-gridlines .p-datatable-header {
+  border-width: 1px 1px 0 1px;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-gridlines .p-datatable-footer {
+  border-width: 0 1px 1px 1px;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-gridlines .p-paginator-top {
+  border-width: 0 1px 0 1px;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-gridlines .p-paginator-bottom {
+  border-width: 0 1px 1px 1px;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th {
+  border-width: 1px 0 1px 1px;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th:last-child {
+  border-width: 1px;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-gridlines .p-datatable-tbody > tr > td {
+  border-width: 1px 0 0 1px;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-gridlines .p-datatable-tbody > tr > td:last-child {
+  border-width: 1px 1px 0 1px;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-gridlines .p-datatable-tbody > tr:last-child > td {
+  border-width: 1px 0 1px 1px;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-gridlines .p-datatable-tbody > tr:last-child > td:last-child {
+  border-width: 1px;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-gridlines .p-datatable-tfoot > tr > td {
+  border-width: 1px 0 1px 1px;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-gridlines .p-datatable-tfoot > tr > td:last-child {
+  border-width: 1px 1px 1px 1px;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-gridlines .p-datatable-thead + .p-datatable-tfoot > tr > td {
+  border-width: 0 0 1px 1px;
+}
+html[data-theme='dark']
+  .p-datatable.p-datatable-gridlines
+  .p-datatable-thead
+  + .p-datatable-tfoot
+  > tr
+  > td:last-child {
+  border-width: 0 1px 1px 1px;
+}
+html[data-theme='dark']
+  .p-datatable.p-datatable-gridlines:has(.p-datatable-thead):has(.p-datatable-tbody)
+  .p-datatable-tbody
+  > tr
+  > td {
+  border-width: 0 0 1px 1px;
+}
+html[data-theme='dark']
+  .p-datatable.p-datatable-gridlines:has(.p-datatable-thead):has(.p-datatable-tbody)
+  .p-datatable-tbody
+  > tr
+  > td:last-child {
+  border-width: 0 1px 1px 1px;
+}
+html[data-theme='dark']
+  .p-datatable.p-datatable-gridlines:has(.p-datatable-tbody):has(.p-datatable-tfoot)
+  .p-datatable-tbody
+  > tr:last-child
+  > td {
+  border-width: 0 0 0 1px;
+}
+html[data-theme='dark']
+  .p-datatable.p-datatable-gridlines:has(.p-datatable-tbody):has(.p-datatable-tfoot)
+  .p-datatable-tbody
+  > tr:last-child
+  > td:last-child {
+  border-width: 0 1px 0 1px;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd {
+  background: #2f3641;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd.p-highlight {
+  background: #8dd0ff;
+  color: #151515;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd.p-highlight .p-row-toggler {
+  color: #151515;
+}
+html[data-theme='dark']
+  .p-datatable.p-datatable-striped
+  .p-datatable-tbody
+  > tr.p-row-odd.p-highlight
+  .p-row-toggler:hover {
+  color: #151515;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd + .p-row-expanded {
+  background: #2f3641;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-sm .p-datatable-header {
+  padding: 0.5rem 0.5rem;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+  padding: 0.5rem 0.5rem;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+  padding: 0.5rem 0.5rem;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-sm .p-datatable-tfoot > tr > td {
+  padding: 0.5rem 0.5rem;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-sm .p-datatable-footer {
+  padding: 0.5rem 0.5rem;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-lg .p-datatable-header {
+  padding: 1.25rem 1.25rem;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-lg .p-datatable-thead > tr > th {
+  padding: 1.25rem 1.25rem;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-lg .p-datatable-tbody > tr > td {
+  padding: 1.25rem 1.25rem;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-lg .p-datatable-tfoot > tr > td {
+  padding: 1.25rem 1.25rem;
+}
+html[data-theme='dark'] .p-datatable.p-datatable-lg .p-datatable-footer {
+  padding: 1.25rem 1.25rem;
+}
+
+html[data-theme='dark'] .p-datatable-drag-selection-helper {
+  background: rgba(141, 208, 255, 0.16);
+}
+
+html[data-theme='dark'] .p-paginator {
+  background: #2a323d;
+  color: #8dd0ff;
+  border: solid #3f4b5b;
+  border-width: 0;
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+html[data-theme='dark'] .p-paginator .p-paginator-first,
+html[data-theme='dark'] .p-paginator .p-paginator-prev,
+html[data-theme='dark'] .p-paginator .p-paginator-next,
+html[data-theme='dark'] .p-paginator .p-paginator-last {
+  background-color: transparent;
+  border: 1px solid #3f4b5b;
+  color: #8dd0ff;
+  min-width: 2.357rem;
+  height: 2.357rem;
+  margin: 0 0 0 -1px;
+  transition: box-shadow 0.15s;
+  border-radius: 0;
+}
+html[data-theme='dark'] .p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,
+html[data-theme='dark'] .p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover,
+html[data-theme='dark'] .p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover,
+html[data-theme='dark'] .p-paginator .p-paginator-last:not(.p-disabled):not(.p-highlight):hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: #3f4b5b;
+  color: #8dd0ff;
+}
+html[data-theme='dark'] .p-paginator .p-paginator-first {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+html[data-theme='dark'] .p-paginator .p-paginator-last {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+html[data-theme='dark'] .p-paginator .p-dropdown {
+  margin-left: 0.5rem;
+  height: 2.357rem;
+}
+html[data-theme='dark'] .p-paginator .p-dropdown .p-dropdown-label {
+  padding-right: 0;
+}
+html[data-theme='dark'] .p-paginator .p-paginator-page-input {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+html[data-theme='dark'] .p-paginator .p-paginator-page-input .p-inputtext {
+  max-width: 2.357rem;
+}
+html[data-theme='dark'] .p-paginator .p-paginator-current {
+  background-color: transparent;
+  border: 1px solid #3f4b5b;
+  color: #8dd0ff;
+  min-width: 2.357rem;
+  height: 2.357rem;
+  margin: 0 0 0 -1px;
+  padding: 0 0.5rem;
+}
+html[data-theme='dark'] .p-paginator .p-paginator-pages .p-paginator-page {
+  background-color: transparent;
+  border: 1px solid #3f4b5b;
+  color: #8dd0ff;
+  min-width: 2.357rem;
+  height: 2.357rem;
+  margin: 0 0 0 -1px;
+  transition: box-shadow 0.15s;
+  border-radius: 0;
+}
+html[data-theme='dark'] .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: #8dd0ff;
+  border-color: #8dd0ff;
+  color: #151515;
+}
+html[data-theme='dark'] .p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: #3f4b5b;
+  color: #8dd0ff;
+}

@@ -3,6 +3,8 @@ import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
 import Select from '../../components/Select';
 import { dummyData } from '../AgGrid/dummyData';
+import Badge from './Badge';
+import RankingStars from './RankingStars';
 
 const OPTIONS = [
   { value: 'small', label: 'small' },
@@ -35,19 +37,19 @@ export default function PrimeReactDataTable() {
       { field: 'athlete', header: 'Athlete', sortable: true },
       { field: 'age', header: 'Age', sortable: true },
       { field: 'country', header: 'Country', hide: hideCountry },
-      { field: 'year', header: 'Year' },
-      { field: 'date', header: 'Date' },
-      { field: 'sport', header: 'Sport' },
-      { field: 'gold', header: 'Gold' },
-      { field: 'silver', header: 'Silver' },
-      { field: 'bronze', header: 'Bronze' },
-      { field: 'total', header: 'Total' },
+      { field: 'year', header: 'Year', sortable: true },
+      { field: 'date', header: 'Date', sortable: true },
+      { field: 'sport', header: 'Sport', sortable: true },
+      { field: 'gold', header: 'Gold', sortable: true },
+      { field: 'silver', header: 'Silver', sortable: true },
+      { field: 'bronze', header: 'Bronze', body: Badge, sortable: true },
+      { field: 'total', header: 'Total', body: RankingStars, sortable: true },
     ],
     [hideCountry],
   );
 
   return (
-    <div className='flex flex-col justify-start items-center gap-4 p-10 w-full bg-[#eff3f7]'>
+    <div className='flex flex-col justify-start items-center gap-4 p-10 w-full bg-[#eff3f7] dark:bg-[#383838]'>
       <div className='flex justify-center items-center gap-4'>
         <Select
           value={tableSize}
@@ -64,7 +66,7 @@ export default function PrimeReactDataTable() {
         </button>
       </div>
 
-      <div className='w-full max-w-4xl border border-[#dfe7ef] rounded-xl p-8 bg-white shadow-md'>
+      <div className='w-full max-w-4xl border border-[#dfe7ef] rounded-xl p-8 bg-white shadow-md dark:bg-[#2b323d] dark:border-neutral-400'>
         <DataTable
           // header={TableHeader}
           // footer={TableFooter}
@@ -78,8 +80,8 @@ export default function PrimeReactDataTable() {
           emptyMessage='No data found'
           currentPageReportTemplate='Showing {first} to {last} of {totalRecords} users'
           rows={10}
-          stripedRows
-          showGridlines
+          // stripedRows
+          // showGridlines
           paginator
         >
           {columnsInfo
