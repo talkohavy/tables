@@ -1,18 +1,27 @@
 import React, { useEffect, useRef } from 'react';
+import { wrapInDebounce } from '../utils/wrapInDebounce';
 
 /**
  * @param {{
  *    eventType: string,
  *    fnToRun: (props: any) => void,
  *    dependencies?: Array,
- *    element?: any
+ *    element?: any,
+ *    ms?: number,
  *    shouldNotRender?: boolean
  * }} props
  */
-export default function useEventListener({ eventType, fnToRun, dependencies = [], element = window, shouldNotRender }) {
+export default function useEventListener({
+  eventType,
+  fnToRun,
+  dependencies = [],
+  element = window,
+  ms = 300,
+  shouldNotRender,
+}) {
   const callbackRef = useRef(fnToRun);
 
-  useEffect(() => ((callbackRef.current = fnToRun), undefined), [fnToRun]);
+  useEffect(() => ((callbackRef.current = wrapInDebounce(fnToRun, ms)), undefined), [fnToRun, ms]);
 
   useEffect(() => {
     if (shouldNotRender) return;
@@ -22,6 +31,5 @@ export default function useEventListener({ eventType, fnToRun, dependencies = []
     callbackRef.current();
 
     return () => element.removeEventListener(eventType, callbackRef.current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, dependencies);
 }

@@ -245,7 +245,6 @@
     "react/no-unescaped-entities": "off",
     "react/no-children-prop": "error", // <--- check what this does
     "react/prop-types": "off",
-    "no-console": "error",
     "react/react-in-jsx-scope": "off" // <--- Since React 18, this is no longer needed. "error" triggers the 'React' must be in scope when using JSX message.
     // "react/jsx-filename-extension": "error", // Yells at you if you add(?) an extension.
 

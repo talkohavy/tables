@@ -15,8 +15,14 @@ const linksRaw = [
   {
     name: 'page2',
     text: 'Page 2',
-    checkIsCurrentPage: ({ pathname }) => /^\/handsontable/.test(pathname),
-    to: '/handsontable',
+    checkIsCurrentPage: ({ pathname }) => /^\/hands-on-table/.test(pathname),
+    to: '/hands-on-table',
+  },
+  {
+    name: 'page3',
+    text: 'Page 3',
+    checkIsCurrentPage: ({ pathname }) => /^\/ag-grid/.test(pathname),
+    to: '/ag-grid',
   },
 ];
 
