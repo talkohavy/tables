@@ -74,15 +74,17 @@ export default function PrimeReactDataTable() {
           tableStyle={{ minWidth: '50rem' }}
           sortOrder={1}
           sortField='athlete'
-          // size={tableSize}
           className='flex flex-col gap-4'
-          paginatorTemplate='FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown'
           emptyMessage='No data found'
-          currentPageReportTemplate='Showing {first} to {last} of {totalRecords} users'
-          rows={10}
+          // rows={10}
           // stripedRows
           // showGridlines
           paginator
+          rows={5}
+          rowsPerPageOptions={[5, 10, 25, 50]}
+          // paginator
+          // paginatorTemplate='FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown'
+          // currentPageReportTemplate='Showing {first} to {last} of {totalRecords} users'
         >
           {columnsInfo
             .filter(({ hide }) => !hide)
