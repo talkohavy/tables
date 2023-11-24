@@ -24,6 +24,12 @@ const linksRaw = [
     checkIsCurrentPage: ({ pathname }) => /^\/ag-grid/.test(pathname),
     to: '/ag-grid',
   },
+  {
+    name: 'page4',
+    text: 'Page 4',
+    checkIsCurrentPage: ({ pathname }) => /^\/prime-react-data-table/.test(pathname),
+    to: '/prime-react-data-table',
+  },
 ];
 
 export default function Header() {

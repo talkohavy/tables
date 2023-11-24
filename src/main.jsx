@@ -6,8 +6,9 @@ import App from './layout/App';
 import DarkThemeProvider from './providers/DarkThemeProvider';
 import 'handsontable/dist/handsontable.full.min.css';
 import './index.css';
-import 'ag-grid-community/styles//ag-grid.css';
-import 'ag-grid-community/styles//ag-theme-alpine.css';
+import './styles/tailwind-light.css';
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-alpine.css';
 
 registerAllModules();
 

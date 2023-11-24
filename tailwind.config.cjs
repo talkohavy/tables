@@ -5,7 +5,7 @@
 module.exports = {
   // prefix: 'tw-', // The prefix option allows you to add a custom prefix to all of Tailwind’s generated utility classes. This can be really useful when layering Tailwind on top of existing CSS where there might be naming conflicts.
   // separator: '_', // By default, We at tailwind use a colon (:), but it can be useful to change this if you’re using a templating language like Pug that doesn’t support special characters in class names.
-  content: ['./src/**/*.{js,jsx}', './index.html'],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', './index.html', './node_modules/primereact/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class', // behind the scenes it's: darkMode: ['class', '[data-mode="dark"]'], you can set the name to something else like this.
   theme: {
     screens: {

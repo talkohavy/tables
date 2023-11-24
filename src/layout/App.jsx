@@ -7,9 +7,7 @@ import MainWindow from './MainWindow';
 const ReactTable = lazy(() => import('../pages/ReactTable'));
 const HandsOnTable = lazy(() => import('../pages/Handsontable'));
 const AgGrid = lazy(() => import('../pages/AgGrid'));
-// const SingleBookPage = lazy(() => import('../pages/SingleBookPage'));
-// const FavoritesPage = lazy(() => import('../pages/FavoritesPage'));
-// const PageNotFound = lazy(() => import('../pages/PageNotFound'));
+const PrimeReactDataTable = lazy(() => import('../pages/PrimeReactDataTable'));
 
 function App() {
   return (
@@ -24,6 +22,7 @@ function App() {
             <Route path='/react-table' element={<ReactTable />} />
             <Route path='/hands-on-table' element={<HandsOnTable />} />
             <Route path='/ag-grid' element={<AgGrid />} />
+            <Route path='/prime-react-data-table' element={<PrimeReactDataTable />} />
 
             <Route path='*' element={<div>Page Note Found</div>} />
           </Routes>
