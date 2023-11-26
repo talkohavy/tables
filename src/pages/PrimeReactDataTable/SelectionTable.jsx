@@ -78,6 +78,8 @@ export default function SelectionTable() {
       <div className='w-full max-w-full border border-[#dfe7ef] rounded-xl p-8 bg-white shadow-md dark:bg-[#2b323d] dark:border-neutral-400'>
         <DataTable
           virtualScrollerOptions={{ itemSize: 46 }}
+          scrollable
+          scrollHeight='400px'
           value={dummyData}
           tableStyle={{ minWidth: '50rem' }}
           // ########
@@ -87,13 +89,6 @@ export default function SelectionTable() {
           sortField='athlete' // <--- pre-sort by
           sortOrder={1}
           removableSort={true} // <--- defaults to false. When removableSort is present, the third click removes the sorting from the column.
-          // ########
-          // Filters:
-          // ########
-          dataKey='id'
-          filters={{}}
-          filterDisplay='row'
-          globalFilterFields={['athlete', 'age', 'country', 'year']}
           // ##############
           // Selection Mode:
           // ##############
@@ -111,7 +106,6 @@ export default function SelectionTable() {
           }
           metaKeySelection={true} // decides if the multi-selection is enabled by default, or should the cmd/ctrl button be involved.
           // cellSelection // When enabling this, comment out the checkbox column, otherwise this would not work! More than one cell is selectable by setting selectionMode to multiple.
-          className='flex flex-col gap-4'
           emptyMessage='No users found'
           stripedRows
           showGridlines
