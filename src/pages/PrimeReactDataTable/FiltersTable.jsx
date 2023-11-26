@@ -20,7 +20,7 @@ const initialFiltersState = {
   isVerified: { value: null, matchMode: FilterMatchMode.EQUALS },
 };
 
-const defaultProps = {
+const defaultColumnDefs = {
   className: 'text-sm font-light',
   headerClassName: 'stickyToTopTableHeaders',
 };
@@ -161,7 +161,7 @@ export default function FiltersTable() {
         resizableColumns
       >
         {columnsInfo.map((props) => (
-          <Column key={props.field} {...props} {...defaultProps} />
+          <Column key={props.field} {...defaultColumnDefs} {...props} />
         ))}
       </DataTable>
     </div>

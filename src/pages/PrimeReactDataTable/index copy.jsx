@@ -122,13 +122,7 @@ export default function PrimeReactDataTable() {
     </div>
   );
 
-  const canBeExpanded = (rowData) => {
-    if (rowData?.orders?.length > 0) {
-      console.log('true!');
-    }
-
-    return rowData?.orders?.length > 0;
-  };
+  const canBeExpanded = (rowData) => rowData?.orders?.length > 0;
 
   const rowExpansionTemplate = (data) => {
     console.log({ data });

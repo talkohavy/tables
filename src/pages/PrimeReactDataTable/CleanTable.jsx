@@ -5,62 +5,20 @@ import { dummyData } from '../AgGrid/dummyData';
 import Badge from './Badge';
 import RankingStars from './RankingStars';
 
+const defaultColumnDefs = { sortable: true, filter: true, className: 'text-sm font-light' };
+
 export default function CleanTable() {
   const columnsInfo = useMemo(
     () => [
-      { field: 'athlete', header: 'Athlete', sortable: true, filter: true, filterPlaceholder: 'Search by name' },
-      { field: 'age', header: 'Age', sortable: true, filter: true, filterPlaceholder: 'Search by name' },
-      { field: 'country', header: 'Country', hide: false, filter: true, filterPlaceholder: 'Search by name' },
-      {
-        field: 'year',
-        header: 'Year',
-        sortable: true,
-        filter: true,
-        filterPlaceholder: 'Search by year',
-        filterMenuStyle: { width: '14rem' },
-      },
-      {
-        field: 'date',
-        header: 'Date',
-        sortable: true,
-        filter: true,
-        filterPlaceholder: 'Search by name',
-        // filterElement: {}, // representativeRowFilterTemplate
-      },
-      {
-        field: 'sport',
-        header: 'Sport',
-        sortable: true,
-        filter: true,
-        filterPlaceholder: 'Search by name',
-        showFilterMenu: false,
-        filterMenuStyle: { width: '14rem' },
-      },
-      {
-        field: 'gold',
-        header: 'Gold',
-        sortable: true,
-        filter: true,
-        filterPlaceholder: 'is Gold',
-        dataType: 'boolean',
-      },
-      { field: 'silver', header: 'Silver', sortable: true, filter: true, filterPlaceholder: 'Search by name' },
-      {
-        field: 'bronze',
-        header: 'Bronze',
-        body: Badge,
-        sortable: true,
-        filter: true,
-        filterPlaceholder: 'Search by name',
-      },
-      {
-        field: 'total',
-        header: 'Total',
-        body: RankingStars,
-        sortable: true,
-        filter: true,
-        filterPlaceholder: 'Search by name',
-      },
+      { field: 'athlete', header: 'Athlete' },
+      { field: 'age', header: 'Age' },
+      { field: 'country', header: 'Country', hide: false, filter: true },
+      { field: 'year', header: 'Year' },
+      { field: 'date', header: 'Date' },
+      { field: 'sport', header: 'Sport' },
+      { field: 'isVerified', header: 'Is Verified' },
+      { field: 'status', header: 'Status', body: Badge },
+      { field: 'rank', header: 'Rank', body: RankingStars },
     ],
     [],
   );
@@ -68,9 +26,14 @@ export default function CleanTable() {
   return (
     <div className='w-full max-w-full border border-[#dfe7ef] rounded-xl p-8 bg-white shadow-md dark:bg-[#2b323d] dark:border-neutral-400'>
       <DataTable
-        virtualScrollerOptions={{ itemSize: 46 }}
+        virtualScrollerOptions={{
+          autoSize: true, // defaults to false.
+          // delay: 150, // defaults to 0
+          // showLoader: true, // defaults to false.
+          // lazy: true, // defaults to false.
+        }}
         scrollable
-        scrollHeight='400px'
+        scrollHeight='800px'
         value={dummyData}
         tableStyle={{ minWidth: '50rem' }}
         // ########
@@ -80,36 +43,18 @@ export default function CleanTable() {
         sortField='athlete' // <--- pre-sort by
         sortOrder={1}
         removableSort={true} // <--- defaults to false. When removableSort is present, the third click removes the sorting from the column.
-        // ########
-        // Filters:
-        // ########
-        dataKey='id'
-        filters={{}}
-        filterDisplay='row'
-        globalFilterFields={['athlete', 'age', 'country', 'year']}
-        // ###########
-        // Pagination:
-        // ###########
-        // paginator
-        // rows={24}
-        // rowsPerPageOptions={[5, 10, 25, 50]}
-        // paginatorTemplate='FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown'
-        // currentPageReportTemplate='Showing {first} to {last} of {totalRecords} users'
         // ######
         // Misc.:
         // ######
         className='flex flex-col gap-4'
         emptyMessage='No users found'
-        // stripedRows
-        // showGridlines
-        // loading={true}
+        stripedRows
+        showGridlines
         resizableColumns
       >
-        {columnsInfo
-          .filter(({ hide }) => !hide)
-          .map((props) => (
-            <Column key={props.field} {...props} className='text-sm font-light' />
-          ))}
+        {columnsInfo.map((columnsProps) => (
+          <Column key={columnsProps.field} {...defaultColumnDefs} {...columnsProps} />
+        ))}
       </DataTable>
     </div>
   );
