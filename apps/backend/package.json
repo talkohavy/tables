@@ -1,17 +1,16 @@
 {
-  "name": "tables",
+  "name": "@tables-app/backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "backend": "cd apps/backend && pnpm run dev",
-    "dev": "cd apps/frontend && pnpm run dev"
+    "dev": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "prettier": "^3.1.0"
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }

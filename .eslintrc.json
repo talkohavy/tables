@@ -4,45 +4,19 @@
  * - eslint
  * - eslint-plugin-import
  * - eslint-import-resolver-typescript
- * - @typescript-eslint/parser
  * - eslint-plugin-sort-exports
- *
- * // For global:
- * pnpm add -wD prettier eslint eslint-plugin-import eslint-import-resolver-typescript @typescript-eslint/parser eslint-plugin-sort-exports
- *
- * // For react:
- * - eslint-plugin-react    (either do plugins: ["react"] or extends: ["plugin:react/recommended"])
- * pnpm add -wD eslint-plugin-react
+ * pnpm add -wD prettier eslint eslint-plugin-import eslint-import-resolver-typescript eslint-plugin-sort-exports
  */
 {
   "root": true,
-  "plugins": ["react", "import", "sort-exports"],
+  "plugins": ["import", "sort-exports"],
   "extends": ["eslint:recommended"], // <--- I would like to get rid of this soon and move it to "plugins".
-  "settings": {
-    // About import/resolver: Solved `import useDirection from './AppHooks/useDirection';` not being recognized. useDirection was a file with a .jsx extension.
-    "import/resolver": {
-      "typescript": {
-        "alwaysTryTypes": true,
-        "project": "./jsconfig.json"
-      }
-    }, // <--- Solved `import useDirection from './AppHooks/useDirection';` not being recognized. useDirection was a file with a .jsx extension.
-    // "import/extensions": [".js", ".jsx"],
-    "react": {
-      // "createClass": "createReactClass", // Regex for Component Factory to use,
-      // default to "createReactClass"
-      "pragma": "React", // Pragma to use, default to "React"
-      // "fragment": "Fragment", // Fragment to use (may be a property of <pragma>), default to "Fragment"
-      "version": "detect" // React version. "detect" automatically picks the version you have installed.
-      // You can also use `16.0`, `16.3`, etc, if you want to override the detected value.
-      // It will default to "latest" and warn if missing, and to "detect" in the future
-      // "flowVersion": "0.53" // Flow version
-    }
-  },
+  "settings": { "import/resolver": { "typescript": { "alwaysTryTypes": true, "project": "./jsconfig.json" } } }, // <--- Solved `import useDirection from './AppHooks/useDirection';` not being recognized. useDirection was a file with a .jsx extension.
   "parserOptions": {
     "ecmaVersion": "latest", // <--- latest is currently on version 2023 or 14. Solved module not being recognized.
     "sourceType": "module", // <--- Solved import & export not being recognized.
     "ecmaFeatures": {
-      "jsx": true, // <--- Solved jsx files not being linted.
+      // "jsx": true, // <--- Solved jsx files not being linted.
       "arrowFunctions": true,
       "forOf": true,
       "modules": true,
@@ -103,16 +77,18 @@
         "ignoreUrls": true // <--- ignore long urls
       }
     ],
-    "no-multiple-empty-lines": ["error", { "max": 1 }], // <--- "error & max=1" is already what prettier is doing by default. Only now you would also be alerted about it by eslint.
     "no-constant-condition": "off", // <--- eslint/recommended set this to "error" by default. Disallows if(true){}.
     "no-debugger": "warn", // default value is error. Disallow the use of the debugger keyword.
+    "no-multiple-empty-lines": ["error", { "max": 1 }], // <--- "error & max=1" is already what prettier is doing by default. Only now you would also be alerted about it by eslint.
     "no-tabs": ["error", { "allowIndentationTabs": false }], // <--- "error" could collides with prettier's useTabs=true. Keep them in sync. That can be used just fine with Prettier as long as you don’t configure Prettier to indent using tabs, which I don't, so we're good. Even if you use the prettier rule of useTabs:true, you can still use this rule with "error", just set allowIndentationTabs to true.
+    "no-trailing-spaces": "error", // <--- "error" is already what prettier is doing by default. Only now you would also be alerted about it by eslint.
+    "no-multi-spaces": ["error", { "exceptions": { "Property": false } }], // <--- "error & Property=false" is already what prettier is doing by default. Only now you would also be alerted about it by eslint.
     "no-unused-vars": [
       "error",
       {
         "vars": "all", // <--- Should global variables be checked too? Or just the local ones? Options are: "all" | "local". "all" checks all variables for usage, including those in the global scope. This is the default setting. "local" checks only that locally-declared variables are used but will allow global variables to be unused.
         "args": "all", // <--- Should all arguments of a function be used? Options are: "all" | "after-used" | "none". "after-used" - unused positional arguments that occur before the last used argument will not be checked, but all named arguments and all positional arguments after the last used argument will be checked. "all" - all named arguments must be used. "none" - do not check arguments.
-        "argsIgnorePattern": "^_",
+        "argsIgnorePattern": "(^_|^req$|^res$|^next$)",
         "caughtErrors": "all", // <--- In a try/catch block, are you using the error object? Options are: "all" | "none" (default). "all" - error argument must be used. "none" - do not check the error object.
         "caughtErrorsIgnorePattern": "^_",
         "destructuredArrayIgnorePattern": "^_", // <--- When destructuring an array like so: const [first, _iAmUnused, third] = arr;
@@ -154,7 +130,7 @@
     "import/first": "error", // <--- I want the imports to be the first thing to appear in every file.
     "import/exports-last": "error", // <--- Ensure all exports appear after other statements.
     // - about import/extensions = Ensures consistent use of file extension on import path. it also had ""always", { ignorePackages: true }", which made internal packages fail at runtime if I enable this (api-gateway is an example case).
-    "import/extensions": ["error", "never", { "js": "never" }],
+    "import/extensions": ["error", "never", { "js": "always" }],
     "import/order": [
       // The given rule enforces a convention in the order of require() / import statements!
       "error",
@@ -206,7 +182,7 @@
     // Rule Set 4: sort-exports rules
     // ##############################
     // NOTE: Comes from the plugin eslint-plugin-sort-exports.
-    "sort-exports/sort-exports": ["error", { "sortDir": "asc" }],
+    "sort-exports/sort-exports": ["error", { "sortDir": "asc" }]
 
     // #####################
     // Rule Set 5: Rule Bank
@@ -234,24 +210,5 @@
     //   }
     // ],
     // "padding-line-between-statements": ["error", { "blankLine": "always", "prev": "*", "next": "return" }],
-
-    // #######################
-    // Rule Set 6: react rules
-    // #######################
-    "react/display-name": "error", // <--- check what this does
-    "react/jsx-no-target-blank": "warn",
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error", // DO NOT USE if no-unused-vars is marked off!
-    "react/no-unescaped-entities": "off",
-    "react/no-children-prop": "error", // <--- check what this does
-    "react/prop-types": "off",
-    "react/react-in-jsx-scope": "off" // <--- Since React 18, this is no longer needed. "error" triggers the 'React' must be in scope when using JSX message.
-    // "react/jsx-filename-extension": "error", // Yells at you if you add(?) an extension.
-
-    // #######################
-    // Rule Set 7: react-hooks
-    // #######################
-    // "react-hooks/exhaustive-deps": "warn",
-    // "react-hooks/rules-of-hooks": "error", // <--- check what this does
   }
 }
