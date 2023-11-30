@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
 import { InputSwitch } from 'primereact/inputswitch';
-import { dummyData } from '../AgGrid/dummyData';
+import { dummyData } from '../../../../backend/dummyData';
 import Badge from './Badge';
 import RankingStars from './RankingStars';
 

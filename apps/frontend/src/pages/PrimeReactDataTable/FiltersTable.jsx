@@ -5,7 +5,7 @@ import { DataTable } from 'primereact/datatable';
 import { MultiSelect } from 'primereact/multiselect';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
-import { dummyData } from '../AgGrid/dummyData';
+import { dummyData } from '../../../../backend/dummyData';
 import Badge from './Badge';
 import RankingStars from './RankingStars';
 

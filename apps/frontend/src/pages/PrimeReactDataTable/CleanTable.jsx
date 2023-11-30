@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
-import { dummyData } from '../AgGrid/dummyData';
+import { dummyData } from '../../../../backend/dummyData';
 import Badge from './Badge';
 import RankingStars from './RankingStars';
 
@@ -24,14 +24,17 @@ export default function CleanTable() {
   );
 
   return (
-    <div className='w-full max-w-full border border-[#dfe7ef] rounded-xl p-8 bg-white shadow-md dark:bg-[#2b323d] dark:border-neutral-400'>
+    <div className='w-full max-w-full rounded-xl border border-[#dfe7ef] bg-white p-8 shadow-md dark:border-neutral-400 dark:bg-[#2b323d]'>
       <DataTable
-        virtualScrollerOptions={{
-          autoSize: true, // defaults to false.
-          // delay: 150, // defaults to 0
-          // showLoader: true, // defaults to false.
-          // lazy: true, // defaults to false.
-        }}
+        virtualScrollerOptions={
+          {
+            // autoSize: true, // defaults to false.
+            // delay: 150, // defaults to 0
+            // showLoader: true, // defaults to false.
+            // lazy: true, // defaults to false.
+            // disabled: true,
+          }
+        }
         scrollable
         scrollHeight='800px'
         value={dummyData}

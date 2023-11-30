@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
-import { dummyData } from '../AgGrid/dummyData';
+import { dummyData } from '../../../../backend/dummyData';
 import Badge from './Badge';
 import RankingStars from './RankingStars';
 

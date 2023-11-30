@@ -1,7 +1,7 @@
 import { useMemo, useRef, useState } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import useEventListener from '../../hooks/useEventListener';
-import { dummyData } from './dummyData';
+import { dummyData } from '../../../../backend/dummyData';
 import 'ag-grid-enterprise';
 
 export default function AgGrid() {
