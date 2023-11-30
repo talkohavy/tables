@@ -1,8 +1,11 @@
+import cors from 'cors';
 import express from 'express';
 import { getAllCustomers, getCustomersByFilterAndPage } from './dummyData.js';
 
 function startServer() {
   const app = express();
+
+  app.use(cors({ origin: 'http://localhost:3001', credentials: true }));
 
   app.get('/customers', (req, res, next) => {
     const { page, itemsPerPage, filter } = req.query;
@@ -10,7 +13,7 @@ function startServer() {
     if (!page && !itemsPerPage) return res.json({ data: getAllCustomers() });
 
     // @ts-ignore
-    return res.json({ data: getCustomersByFilterAndPage({ filter, itemsPerPage, page }) });
+    return res.json({ data: getCustomersByFilterAndPage({ filter, itemsPerPage: +itemsPerPage, page: +page }) });
   });
 
   app.use((req, res, next) => {
