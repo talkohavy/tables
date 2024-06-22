@@ -47,9 +47,7 @@ export default function TableHeader({ tableInstance, getHeaderGroups }) {
                   {/* Display the Filter */}
                   {/* ------------------ */}
                   {header.column.getCanFilter() && header.column.columnDef.enableColumnFilter ? (
-                    <div>
-                      <DefaultFilter table={tableInstance} column={header.column} />
-                    </div>
+                    <DefaultFilter table={tableInstance} column={header.column} />
                   ) : null}
                 </div>
               )}
