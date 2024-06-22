@@ -1,0 +1,39 @@
+.react-table-ref-container {
+  border: 1px solid green;
+}
+
+.react-table {
+  /* background-color: red; */
+  /* height: 100%; <--- can't do that! This stretches the rows' height to fit the table's height!*/
+  /* border: 1px solid green; */
+}
+
+.react-table-header-row {
+  height: 44px;
+}
+
+.react-table-data-row:nth-child(odd) {
+  background-color: #eee;
+}
+
+.react-table-data-row {
+  height: 44px;
+}
+
+.react-table-data-row:hover {
+  background-color: blue;
+}
+
+.react-table-data-cell {
+  padding: 2px;
+}
+
+.react-table-data-row.react-table-data-row-selected {
+  background-color: red;
+}
+
+.react-table-header-cell div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

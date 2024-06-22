@@ -12,6 +12,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.14.8",
+    "eslint": "^8.57.0",
+    "eslint-plugin-ezlint": "^1.6.2",
     "eslint-plugin-jsdoc": "^46.9.0",
     "prettier": "^3.1.0"
   }

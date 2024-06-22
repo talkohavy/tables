@@ -12,6 +12,7 @@
   "dependencies": {
     "@handsontable/react": "^13.1.0",
     "@tables-pkg/lodash-light": "workspace:^",
+    "@tanstack/react-table": "^8.17.3",
     "ag-grid-community": "^30.2.1",
     "ag-grid-enterprise": "^30.2.1",
     "ag-grid-react": "^30.2.1",
@@ -21,7 +22,8 @@
     "primereact": "^10.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.20.0"
+    "react-router-dom": "^6.20.0",
+    "react-virtual": "^2.10.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
