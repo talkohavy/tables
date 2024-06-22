@@ -1,31 +1,57 @@
+:root {
+  --border-color: rgb(207, 207, 212);
+  --row-hovered-bg: rgb(135, 187, 255);
+  --header-align: center;
+  --cell-align: left;
+}
+
 .react-table-ref-container {
   border: 1px solid green;
 }
 
-.react-table {
-  /* background-color: red; */
-  /* height: 100%; <--- can't do that! This stretches the rows' height to fit the table's height!*/
-  /* border: 1px solid green; */
-}
+/* .react-table {
+  background-color: red;
+  height: 100%; <--- can't do that! This stretches the rows' height to fit the table's height!
+  border: 1px solid green;
+} */
 
 .react-table-header-row {
-  height: 44px;
+  height: 40px;
+}
+
+.react-table-header-cell {
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.react-table-header-cell:last-child {
+  border-right: none;
 }
 
 .react-table-data-row:nth-child(odd) {
   background-color: #eee;
 }
 
-.react-table-data-row {
-  height: 44px;
-}
+/* .react-table-data-row {
+  height: 44px; <--- instead of using row height, I think it's better to use cell padding
+} */
+
+/* .react-table-data-row:last-child {
+  border-bottom: 1px solid gray;
+} */
 
 .react-table-data-row:hover {
-  background-color: blue;
+  background-color: var(--row-hovered-bg);
 }
 
 .react-table-data-cell {
-  padding: 2px;
+  padding: 10px;
+  border-right: 1px solid var(--border-color);
+  text-align: var(--cell-align);
+}
+
+.react-table-data-cell:last-child {
+  border-right: none;
 }
 
 .react-table-data-row.react-table-data-row-selected {
@@ -36,4 +62,5 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: var(--header-align);
 }

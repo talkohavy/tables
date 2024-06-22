@@ -21,9 +21,14 @@ export default function TableHeader({ tableInstance, getHeaderGroups }) {
       {getHeaderGroups().map((headerGroup) => (
         <tr key={headerGroup.id} className='react-table-header-row'>
           {headerGroup.headers.map((header) => (
-            <th key={header.id} colSpan={header.colSpan} style={{ width: header.getSize() }}>
+            <th
+              key={header.id}
+              colSpan={header.colSpan}
+              style={{ width: header.getSize() }}
+              className='react-table-header-cell'
+            >
               {header.isPlaceholder ? null : (
-                <div className='react-table-header-cell'>
+                <div>
                   <div className='flex w-full items-center justify-between'>
                     {/* ------------------ */}
                     {/* Display the Header */}
