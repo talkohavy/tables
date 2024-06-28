@@ -1,27 +1,28 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 
-/**
- * @param {{
- *    value: boolean,
- *    setValue: () => void,
- *    size?: number,
- *    className?: string,
- *    style?: any,
- * }} props
- */
-export default function ToggleButton({ value, setValue, size = 32, className = '', style }) {
+type ToggleButtonProps = {
+  value: boolean;
+  setValue: () => void;
+  size?: number;
+  className?: string;
+  style?: any;
+};
+
+export default function ToggleButton(props: ToggleButtonProps) {
+  const { value, setValue, size = 32, className = '', style } = props;
+
   const isChecked = value;
 
   // all useStates:
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
-  //------------------- Render GUI ----------------------
+  // ------------------- Render GUI ----------------------
   return (
     <div className={className} style={style}>
       <label
-        className={clsx('mx-4 relative rounded-full inline-block cursor-pointer outline-none', className)}
+        className={clsx('relative mx-4 inline-block cursor-pointer rounded-full outline-none', className)}
         style={{
           ...style,
           width: size * 2.8,
@@ -45,14 +46,14 @@ export default function ToggleButton({ value, setValue, size = 32, className = '
           type='checkbox'
           checked={isChecked}
           onChange={setValue}
-          className='absolute right-0 top-0 left-0 bottom-0 opacity-0 z-50 cursor-pointer'
+          className='absolute inset-0 z-50 cursor-pointer opacity-0'
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
         />
 
         <div
           className={clsx(
-            'absolute top-1/2 -translate-y-1/2 left-0 rounded-full',
+            'absolute left-0 top-1/2 -translate-y-1/2 rounded-full',
             isChecked
               ? 'left-1/3'
               : isFocused

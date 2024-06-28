@@ -45,7 +45,7 @@ export default function CleanTable() {
         sortMode='single'
         sortField='athlete' // <--- pre-sort by
         sortOrder={1}
-        removableSort={true} // <--- defaults to false. When removableSort is present, the third click removes the sorting from the column.
+        removableSort // <--- defaults to false. When removableSort is present, the third click removes the sorting from the column.
         // ######
         // Misc.:
         // ######

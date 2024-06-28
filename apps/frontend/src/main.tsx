@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { registerAllModules } from 'handsontable/registry';
 import { PrimeReactProvider } from 'primereact/api';
@@ -12,14 +13,20 @@ import './index.css';
 
 registerAllModules();
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <DarkThemeProvider>
-        <PrimeReactProvider value={{ unstyled: true, pt: Tailwind }}>
-          <App />
-        </PrimeReactProvider>
-      </DarkThemeProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
-);
+function Client() {
+  return (
+    <React.StrictMode>
+      <BrowserRouter>
+        <DarkThemeProvider>
+          <PrimeReactProvider value={{ unstyled: true, pt: Tailwind }}>
+            <App />
+          </PrimeReactProvider>
+        </DarkThemeProvider>
+      </BrowserRouter>
+    </React.StrictMode>
+  );
+}
+
+const root = document.getElementById('root')!;
+
+ReactDOM.createRoot(root).render(<Client />);

@@ -1,12 +1,12 @@
-import CleanTable from './CleanTable';
-
 // import ExpandableRowsTable from './ExpandableRowsTable';
 // import FiltersTable from './FiltersTable';
 // import SelectionTable from './SelectionTable';
 
+import CleanTable from './CleanTable';
+
 export default function PrimeReactDataTable() {
   return (
-    <div className='flex flex-col justify-start items-center gap-4 p-10 w-full bg-[#eff3f7] dark:bg-[#383838]'>
+    <div className='flex w-full flex-col items-center justify-start gap-4 bg-[#eff3f7] p-10 dark:bg-[#383838]'>
       {/* <div className='text-5xl dark:text-white'>FiltersTable</div>
       <FiltersTable />
 

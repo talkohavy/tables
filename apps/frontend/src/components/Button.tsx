@@ -1,17 +1,18 @@
 import clsx from 'clsx';
 
-/**
- * @param {{
- *    children: string | JSX.Element,
- *    onClick?: () => void,
- *    onMouseOver?: () => void,
- *    isDisabled?: boolean,
- *    className?: string,
- *    style?: any,
- *    testId?: string,
- * }} props
- */
-export default function Button({ children, onClick, onMouseOver, isDisabled, className, style, testId }) {
+type ButtonProps = {
+  children: string | JSX.Element;
+  onClick?: () => void;
+  onMouseOver?: () => void;
+  isDisabled?: boolean;
+  className?: string;
+  style?: any;
+  testId?: string;
+};
+
+export default function Button(props: ButtonProps) {
+  const { children, onClick, onMouseOver, isDisabled, className, style, testId } = props;
+
   return (
     <button
       type='button'

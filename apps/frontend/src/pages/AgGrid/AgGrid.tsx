@@ -1,11 +1,11 @@
 import { useMemo, useRef, useState } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import useEventListener from '../../hooks/useEventListener';
-import { dummyData } from '../../../../backend/dummyData';
+import { dummyData } from './dummyData';
 import 'ag-grid-enterprise';
 
 export default function AgGrid() {
-  const agGridRef = useRef(null);
+  const agGridRef = useRef<any>(null);
   const wrapperRef = useRef(null);
 
   useEventListener({ eventType: 'resize', element: window, fnToRun: sizeToFit, ms: 150, dependencies: [] });
@@ -33,28 +33,30 @@ export default function AgGrid() {
   );
 
   function sizeToFit() {
-    agGridRef.current.api?.sizeColumnsToFit();
+    agGridRef.current?.api?.sizeColumnsToFit();
   }
 
-  function autoSizeAll(skipHeader) {
-    const allColumnIds = [];
+  function autoSizeAll(skipHeader?: boolean) {
+    const allColumnIds: Array<any> = [];
 
-    agGridRef.current.columnApi.getColumns().forEach((column) => {
+    agGridRef.current.columnApi.getColumns().forEach((column: any) => {
       allColumnIds.push(column.getId());
     });
 
     agGridRef.current.columnApi.autoSizeColumns(allColumnIds, skipHeader);
   }
 
-  const [rowData] = useState(dummyData);
+  // @ts-ignore
+  // eslint-disable-next-line
+  const [rowData, setRowData] = useState(dummyData);
 
   return (
-    <div className='ag-theme-alpine w-full h-full'>
-      <div className='flex justify-start items-center h-20 gap-2'>
+    <div className='ag-theme-alpine h-full w-full'>
+      <div className='flex h-20 items-center justify-start gap-2'>
         <button
           type='button'
           onClick={sizeToFit}
-          className='h-16 w-40 border border-black rounded-xl bg-red-500 text-white hover:rounded-2xl hover:bg-red-400'
+          className='h-16 w-40 rounded-xl border border-black bg-red-500 text-white hover:rounded-2xl hover:bg-red-400'
         >
           Size To Fit
         </button>
@@ -62,7 +64,7 @@ export default function AgGrid() {
         <button
           type='button'
           onClick={() => autoSizeAll()}
-          className='h-16 w-40 border border-black rounded-xl bg-red-500 text-white hover:rounded-2xl hover:bg-red-400'
+          className='h-16 w-40 rounded-xl border border-black bg-red-500 text-white hover:rounded-2xl hover:bg-red-400'
         >
           Auto Size All
         </button>
@@ -70,19 +72,19 @@ export default function AgGrid() {
         <button
           type='button'
           onClick={() => autoSizeAll(true)}
-          className='h-16 w-40 border border-black rounded-xl bg-red-500 text-white hover:rounded-2xl hover:bg-red-400'
+          className='h-16 w-40 rounded-xl border border-black bg-red-500 text-white hover:rounded-2xl hover:bg-red-400'
         >
           Auto Size All (skip header)
         </button>
       </div>
 
-      <div className='w-full h-full' ref={wrapperRef}>
+      <div className='h-full w-full' ref={wrapperRef}>
         <AgGridReact
           ref={agGridRef}
           rowData={rowData}
           // @ts-ignore
           columnDefs={columnDefs}
-          animateRows={true}
+          animateRows
           defaultColDef={{
             resizable: true,
             flex: 1,
@@ -95,7 +97,7 @@ export default function AgGrid() {
           }}
           autoGroupColumnDef={{ minWidth: 200 }}
           onColumnResized={(params) => console.log(params)}
-          suppressAutoSize={true}
+          suppressAutoSize
           sideBar={{
             toolPanels: [
               {

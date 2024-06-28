@@ -4,13 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "pnpm run typecheck && vite",
+    "typecheck": "tsc -p tsconfig.app.json",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@handsontable/react": "^13.1.0",
+    "@handsontable/react": "^14.4.0",
     "@tables-pkg/lodash-light": "workspace:^",
     "@tanstack/react-table": "^8.17.3",
     "ag-grid-community": "^30.2.1",
@@ -41,6 +42,7 @@
     "postcss": "^8.4.31",
     "prettier": "^3.1.0",
     "tailwindcss": "^3.3.5",
+    "typescript": "^5.5.2",
     "vite": "^5.0.0"
   }
 }

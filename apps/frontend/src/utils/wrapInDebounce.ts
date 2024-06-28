@@ -1,7 +1,7 @@
-function wrapInDebounce(fnToRun, milliseconds = 300) {
-  let timerId;
+function wrapInDebounce(fnToRun: (props?: any) => any, milliseconds: number = 300) {
+  let timerId: NodeJS.Timeout | null;
 
-  return (...args) => {
+  return (...args: any[]) => {
     if (timerId) clearTimeout(timerId);
 
     timerId = setTimeout(() => {
