@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-type DarkThemeContextProps = { isDarkMode: boolean; toggleDarkMode: () => void };
+type DarkThemeContextProps = { isDarkMode: boolean; toggleDarkMode: (value: any) => void };
 
 const INITIAL_STATE = {} as DarkThemeContextProps;
 

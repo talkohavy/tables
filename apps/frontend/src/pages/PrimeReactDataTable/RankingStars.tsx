@@ -1,6 +1,6 @@
 import StarIcon from '../../components/svgs/Star';
 
-const STAR_COLORS = {
+const STAR_COLORS: any = {
   full: 'fill-teal-500 stroke-teal-500',
   half: 'fill-transparent stroke-teal-500',
   empty: 'fill-transparent stroke-teal-500',

@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
 import { InputSwitch } from 'primereact/inputswitch';
-import { dummyData } from '../../../../backend/dummyData';
+import { dummyData } from '../AgGrid/dummyData';
 import Badge from './Badge';
 import RankingStars from './RankingStars';
 
@@ -70,12 +70,13 @@ export default function SelectionTable() {
   );
 
   return (
-    <div className='flex flex-col justify-start items-center gap-4 p-10 w-full bg-[#eff3f7] dark:bg-[#383838]'>
-      <div className='flex justify-center items-center gap-4'>
+    <div className='flex w-full flex-col items-center justify-start gap-4 bg-[#eff3f7] p-10 dark:bg-[#383838]'>
+      <div className='flex items-center justify-center gap-4'>
         <InputSwitch checked={isRowClickChecking} onChange={(e) => setIsRowClickChecking(e.value)} />
       </div>
 
-      <div className='w-full max-w-full border border-[#dfe7ef] rounded-xl p-8 bg-white shadow-md dark:bg-[#2b323d] dark:border-neutral-400'>
+      <div className='w-full max-w-full rounded-xl border border-[#dfe7ef] bg-white p-8 shadow-md dark:border-neutral-400 dark:bg-[#2b323d]'>
+        {/* @ts-ignore */}
         <DataTable
           virtualScrollerOptions={{ itemSize: 46 }}
           scrollable
@@ -88,13 +89,13 @@ export default function SelectionTable() {
           sortMode='single'
           sortField='athlete' // <--- pre-sort by
           sortOrder={1}
-          removableSort={true} // <--- defaults to false. When removableSort is present, the third click removes the sorting from the column.
+          removableSort // <--- defaults to false. When removableSort is present, the third click removes the sorting from the column.
           // ##############
           // Selection Mode:
           // ##############
           selectionMode={isRowClickChecking ? null : 'checkbox'}
           selection={selectedItems}
-          onSelectionChange={(e) => setSelectedItems(e.value)}
+          onSelectionChange={(e: any) => setSelectedItems(e.value)}
           onRowSelect={() => console.log('row was selected!')}
           onRowUnselect={() => console.log('row was unselected!')}
           isDataSelectable={
@@ -104,16 +105,17 @@ export default function SelectionTable() {
              */
             (props) => props.index !== 3
           }
-          metaKeySelection={true} // decides if the multi-selection is enabled by default, or should the cmd/ctrl button be involved.
+          metaKeySelection // decides if the multi-selection is enabled by default, or should the cmd/ctrl button be involved.
           // cellSelection // When enabling this, comment out the checkbox column, otherwise this would not work! More than one cell is selectable by setting selectionMode to multiple.
           emptyMessage='No users found'
           stripedRows
           showGridlines
         >
           {/* When setting selectionMode='checkbox', add this bottom line for a checkbox column */}
-          <Column selectionMode='multiple' headerStyle={{ width: '3rem' }}></Column>
+          <Column selectionMode='multiple' headerStyle={{ width: '3rem' }} />
 
           {columnsInfo
+          // @ts-ignore
             .filter(({ hide }) => !hide)
             .map((props) => (
               <Column key={props.field} {...props} className='text-sm font-light' />

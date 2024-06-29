@@ -3,24 +3,31 @@ import { flexRender } from '@tanstack/react-table';
 import ArrowIcon from '../../../utils/svgs/ArrowIcon';
 import DefaultFilter from '../DefaultFilter';
 
-const SORTING_ICONS = {
+const SORTING_ICONS: any = {
   asc: () => <ArrowIcon size={16} />,
   desc: () => <ArrowIcon size={16} className='rotate-180' />,
   none: '',
 };
 
-export default function TableHeader({ tableInstance, getHeaderGroups }) {
+type TableHeaderProps = {
+  tableInstance: any;
+  getHeaderGroups: any;
+};
+
+export default function TableHeader(props: TableHeaderProps) {
+  const { getHeaderGroups, tableInstance } = props;
+
   // all useCallbacks:
   const onHeaderClick = useCallback(
-    (e, header) => e.target.tagName !== 'INPUT' && header.column.getToggleSortingHandler()(e),
+    (e: any, header: any) => e.target.tagName !== 'INPUT' && header.column.getToggleSortingHandler()(e),
     [],
   );
 
   return (
     <thead>
-      {getHeaderGroups().map((headerGroup) => (
+      {getHeaderGroups().map((headerGroup: any) => (
         <tr key={headerGroup.id} className='react-table-header-row'>
-          {headerGroup.headers.map((header) => (
+          {headerGroup.headers.map((header: any) => (
             <th
               key={header.id}
               colSpan={header.colSpan}

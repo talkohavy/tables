@@ -2,15 +2,16 @@ import { useCallback, useState } from 'react';
 import { wrapInDebounce } from '../utils/wrapInDebounce';
 import useEventListener from './useEventListener';
 
-/**
- * @param {{
- *    wrapperRef: any,
- *    fnToRun?: (value: any) => void,
- *    shouldNotRender?: boolean,
- *    ms?: number,
- * }} props
- */
-export function useWidthHeightResize({ wrapperRef, fnToRun, ms = 300, shouldNotRender }) {
+type UseWidthHeightResizeProps = {
+  wrapperRef: any;
+  fnToRun?: (value: any) => void;
+  shouldNotRender?: boolean;
+  ms?: number;
+};
+
+export function useWidthHeightResize(props: UseWidthHeightResizeProps) {
+  const { wrapperRef, fnToRun, ms = 300, shouldNotRender = false } = props;
+
   const [size, setSize] = useState({ width: 0, height: 0 });
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -21,7 +22,7 @@ export function useWidthHeightResize({ wrapperRef, fnToRun, ms = 300, shouldNotR
       setSize(newSize);
       fnToRun?.(newSize);
     }, ms),
-    []
+    [],
   );
 
   useEventListener({

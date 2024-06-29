@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { isObjEmpty } from '@tables-pkg/lodash-light/lib/isObjEmpty';
-import { wrapInThrottle } from '@tables-pkg/lodash-light/lib/wrapInThrottle';
+import { isEmpty, wrapInThrottle } from '@talkohavy/lodash';
 
 /** @param {{page?: any, itemsPerPage?: any}} props */
 export default function useCustomersData(props = {}) {
@@ -11,7 +10,7 @@ export default function useCustomersData(props = {}) {
   const fetchCustomersThrottled = useCallback(
     wrapInThrottle(async () => {
       setIsLoading(true);
-      const searchQueryParams = isObjEmpty(props) ? '' : `?${new URLSearchParams(props)}`;
+      const searchQueryParams = isEmpty(props) ? '' : `?${new URLSearchParams(props)}`;
       fetch(`http://localhost:8000/customers${searchQueryParams}`, { method: 'GET' }).then((customersRaw) =>
         customersRaw.json().then(({ data }) => {
           setCustomers(data);

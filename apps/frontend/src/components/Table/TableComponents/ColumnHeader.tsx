@@ -1,12 +1,11 @@
 import IndeterminateCheckbox from '../IndeterminateCheckbox';
 
-/**
- * @param {{
- *   table:any,
- *   header:any
- * }} props
- */
-export default function ColumnHeader(props) {
+type ColumnHeaderProps = {
+  table: any;
+  header: any;
+};
+
+export default function ColumnHeader(props: ColumnHeaderProps) {
   const { table, header } = props;
 
   return (

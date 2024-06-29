@@ -1,7 +1,17 @@
 import clsx from 'clsx';
 import { flexRender } from '@tanstack/react-table';
 
-export default function TableBody({ virtualRows, virtualPaddingTop, virtualPaddingBottom, rows, onCellClick }) {
+type TableBodyProps = {
+  virtualRows: Array<any>;
+  virtualPaddingTop: any;
+  virtualPaddingBottom: any;
+  rows: any;
+  onCellClick: (props: { cell: any; row: any }) => any;
+};
+
+export default function TableBody(props: TableBodyProps) {
+  const { virtualRows, virtualPaddingTop, virtualPaddingBottom, rows, onCellClick } = props;
+
   return (
     <tbody>
       {virtualPaddingTop > 0 && (
@@ -12,7 +22,7 @@ export default function TableBody({ virtualRows, virtualPaddingTop, virtualPaddi
       {virtualRows.map((virtualRow) => {
         const row = rows[virtualRow.index];
         const handleRowClickOrKeyDown = row.getCanSelect()
-          ? (e) => {
+          ? (e: any) => {
               if (e.type === 'click' || (['Enter', 'NumpadEnter'].includes(e.code) && !e.shiftKey)) {
                 e.preventDefault();
 
@@ -34,8 +44,8 @@ export default function TableBody({ virtualRows, virtualPaddingTop, virtualPaddi
               // index % 2 === 0 && 'bg-[#f5f7fa]',
             )}
           >
-            {row.getVisibleCells().map((cell) => {
-              const handleCellClickOrKeyDown = (e) => {
+            {row.getVisibleCells().map((cell: any) => {
+              const handleCellClickOrKeyDown = (e: any) => {
                 if (e.type === 'click' || (['Enter', 'NumpadEnter'].includes(e.code) && !e.shiftKey)) {
                   e.preventDefault();
 

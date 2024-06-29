@@ -1,4 +1,13 @@
-export default function Star({ fillColor = undefined, outlineColor = undefined, size = 24, className }) {
+type StarProps = {
+  fillColor?: string;
+  outlineColor?: string;
+  size?: number;
+  className?: string;
+};
+
+export default function Star(props: StarProps) {
+  const { size = 24, fillColor, outlineColor, className } = props;
+
   return (
     <svg
       viewBox='0 0 47.94 47.94'

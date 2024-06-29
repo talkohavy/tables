@@ -1,7 +1,7 @@
+// @ts-nocheck
 import { useEffect, useMemo, useState } from 'react';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
-import { dummyData } from '../../../../backend/dummyData';
 import Badge from './Badge';
 import RankingStars from './RankingStars';
 
@@ -13,7 +13,7 @@ export default function PaginationTable() {
   const [customers, setCustomers] = useState(null);
   const [selectAll, setSelectAll] = useState(false);
   const [selectedCustomers, setSelectedCustomers] = useState(null);
-  const [lazyState, setlazyState] = useState({
+  const [lazyState, setLazyState] = useState<any>({
     first: 0,
     rows: 10,
     page: 1,
@@ -27,7 +27,7 @@ export default function PaginationTable() {
     },
   });
 
-  let networkTimeout = null;
+  let networkTimeout: any = null;
 
   useEffect(() => {
     loadLazyData();
@@ -36,11 +36,9 @@ export default function PaginationTable() {
   const loadLazyData = () => {
     setLoading(true);
 
-    if (networkTimeout) {
-      clearTimeout(networkTimeout);
-    }
+    if (networkTimeout) clearTimeout(networkTimeout);
 
-    //imitate delay of a backend call
+    // imitate delay of a backend call
     networkTimeout = setTimeout(
       () => {
         CustomerService.getCustomers({ lazyEvent: JSON.stringify(lazyState) }).then((data) => {
@@ -53,32 +51,26 @@ export default function PaginationTable() {
     );
   };
 
-  const onPage = (event) => {
-    setlazyState(event);
+  const onPage = (event: any) => setLazyState(event);
+  const onSort = (event: any) => setLazyState(event);
+  const onFilter = (event: any) => {
+    event.first = 0;
+    setLazyState(event);
   };
 
-  const onSort = (event) => {
-    setlazyState(event);
-  };
-
-  const onFilter = (event) => {
-    event['first'] = 0;
-    setlazyState(event);
-  };
-
-  const onSelectionChange = (event) => {
+  const onSelectionChange = (event: any) => {
     const { value } = event;
 
     setSelectedCustomers(value);
     setSelectAll(value.length === totalRecords);
   };
 
-  const onSelectAllChange = (event) => {
+  const onSelectAllChange = (event: any) => {
     const selectAll = event.checked;
 
     if (selectAll) {
       debugger;
-      CustomerService.getCustomers().then((data) => {
+      CustomerService.getCustomers().then((data: any) => {
         setSelectAll(true);
         setSelectedCustomers(data.customers);
       });
@@ -104,7 +96,7 @@ export default function PaginationTable() {
   );
 
   return (
-    <div className='w-full max-w-full border border-[#dfe7ef] rounded-xl p-8 bg-white shadow-md dark:bg-[#2b323d] dark:border-neutral-400'>
+    <div className='w-full max-w-full rounded-xl border border-[#dfe7ef] bg-white p-8 shadow-md dark:border-neutral-400 dark:bg-[#2b323d]'>
       <DataTable
         value={customers}
         virtualScrollerOptions={{
@@ -141,7 +133,7 @@ export default function PaginationTable() {
         // sortMode='single'
         // sortField='athlete' // <--- pre-sort by
         // sortOrder={1}
-        removableSort={true} // <--- defaults to false. When removableSort is present, the third click removes the sorting from the column.
+        removableSort // <--- defaults to false. When removableSort is present, the third click removes the sorting from the column.
         // ######
         // Misc.:
         // ######

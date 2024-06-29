@@ -1,4 +1,12 @@
-export default function ArrowIcon({ size, color = 'black', className = undefined }) {
+type ArrowIconProps = {
+  size?: number;
+  color?: string;
+  className?: string;
+};
+
+export default function ArrowIcon(props: ArrowIconProps) {
+  const { size = 16, color = 'black', className = undefined } = props;
+
   return (
     <svg
       style={{ width: size, height: size }}

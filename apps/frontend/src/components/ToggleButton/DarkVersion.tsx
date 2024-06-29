@@ -3,9 +3,9 @@ import clsx from 'clsx';
 
 type ToggleButtonProps = {
   value: boolean;
-  setValue: () => void;
+  setValue: (value?: any) => void;
   size?: number;
-  className?: string;
+  className?: string | undefined;
   style?: any;
 };
 

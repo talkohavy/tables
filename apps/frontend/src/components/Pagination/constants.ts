@@ -67,7 +67,7 @@ type displayFirstLastAndFiveInMiddleProps = {
 /**
  * Display format: 1 ... 3 4 |5| 6 7 ... 9.
  */
-function displayFirstLastAndFiveInMiddle(props: displayFirstLastAndFiveInMiddleProps) {
+function displayFirstLastAndFiveInMiddle(props: displayFirstLastAndFiveInMiddleProps): Array<PageTile> {
   const { curPage, numOfPages } = props;
 
   const pagesArr = [];
@@ -85,11 +85,18 @@ function displayFirstLastAndFiveInMiddle(props: displayFirstLastAndFiveInMiddleP
   return pagesArr;
 }
 
+enum STRATEGY_NAME {
+  SHOW_ALL_PAGES = 'SHOW_ALL_PAGES',
+  DISPLAY_FIRST_FIVE_AND_LAST = 'DISPLAY_FIRST_FIVE_AND_LAST',
+  DISPLAY_FIRST_AND_FIVE_LAST = 'DISPLAY_FIRST_AND_FIVE_LAST',
+  DISPLAY_FIRST_LAST_AND_FIVE_IN_MIDDLE = 'DISPLAY_FIRST_LAST_AND_FIVE_IN_MIDDLE',
+}
+
 const STRATEGY = {
-  SHOW_ALL_PAGES: showAllPages,
-  DISPLAY_FIRST_FIVE_AND_LAST: displayFirstFiveAndLast,
-  DISPLAY_FIRST_AND_FIVE_LAST: displayFirstAndFiveLast,
-  DISPLAY_FIRST_LAST_AND_FIVE_IN_MIDDLE: displayFirstLastAndFiveInMiddle,
+  [STRATEGY_NAME.SHOW_ALL_PAGES]: showAllPages,
+  [STRATEGY_NAME.DISPLAY_FIRST_FIVE_AND_LAST]: displayFirstFiveAndLast,
+  [STRATEGY_NAME.DISPLAY_FIRST_AND_FIVE_LAST]: displayFirstAndFiveLast,
+  [STRATEGY_NAME.DISPLAY_FIRST_LAST_AND_FIVE_IN_MIDDLE]: displayFirstLastAndFiveInMiddle,
 };
 
 // const STRATEGY_OPTIONS = Object.keys(STRATEGY).reduce((acc, curKey) => ({ ...acc, [curKey]: curKey }), {});
@@ -114,4 +121,4 @@ function getDisplayType(props: getDisplayTypeProps) {
   return displayType;
 }
 
-export { STRATEGY, STRATEGY_OPTIONS, getDisplayType };
+export { STRATEGY, STRATEGY_NAME, STRATEGY_OPTIONS, getDisplayType };

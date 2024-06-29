@@ -1,19 +1,36 @@
 import TableButton from './TableButton';
 
-export default function Pagination({
-  onPrevClick,
-  onNextClick,
-  isPrevDisabled,
-  isNextDisabled,
-  currentPage,
-  totalNumOfPages,
-  onFirstPageClick,
-  onLastPageClick,
-  totalItemsLoadedCount,
-  totalItemsOverallCount,
-  fetchNextPage,
-  pagesLoaded,
-}) {
+type PaginationProps = {
+  onPrevClick: () => any;
+  onNextClick: () => any;
+  isPrevDisabled: boolean;
+  isNextDisabled: boolean;
+  currentPage: any;
+  totalNumOfPages: any;
+  onFirstPageClick: () => any;
+  onLastPageClick: () => any;
+  totalItemsLoadedCount: number;
+  totalItemsOverallCount: number;
+  fetchNextPage: () => any;
+  pagesLoaded: Array<number>;
+};
+
+export default function Pagination(props: PaginationProps) {
+  const {
+    onPrevClick,
+    onNextClick,
+    isPrevDisabled,
+    isNextDisabled,
+    currentPage,
+    totalNumOfPages,
+    onFirstPageClick,
+    onLastPageClick,
+    totalItemsLoadedCount,
+    totalItemsOverallCount,
+    fetchNextPage,
+    pagesLoaded,
+  } = props;
+
   return (
     <div className='flex items-center gap-2'>
       <TableButton

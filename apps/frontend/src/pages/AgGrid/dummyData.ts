@@ -1034,7 +1034,15 @@ const dummyData = [
   },
 ];
 
-function getCustomersByFilterAndPage({ filter, page = 0, itemsPerPage }) {
+type GetCustomersByFilterAndPageProps = {
+  filter: () => void;
+  page: number;
+  itemsPerPage: number;
+};
+
+function getCustomersByFilterAndPage(props: GetCustomersByFilterAndPageProps) {
+  const { filter, page = 0, itemsPerPage } = props;
+
   const filteredCustomers = filter ? dummyData.filter(filter) : [...dummyData];
   const lastIndex = filteredCustomers.length;
 

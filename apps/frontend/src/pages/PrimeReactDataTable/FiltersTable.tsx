@@ -5,7 +5,7 @@ import { DataTable } from 'primereact/datatable';
 import { MultiSelect } from 'primereact/multiselect';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
-import { dummyData } from '../../../../backend/dummyData';
+import { dummyData } from '../AgGrid/dummyData';
 import Badge from './Badge';
 import RankingStars from './RankingStars';
 
@@ -29,9 +29,9 @@ export default function FiltersTable() {
   const [globalFilterValue, setGlobalFilterValue] = useState('');
   const [filters, setFilters] = useState(initialFiltersState);
 
-  const onGlobalFilterChange = (value) => {
+  const onGlobalFilterChange = (value: any) => {
     const _filters = { ...filters };
-    _filters['global'].value = value;
+    _filters.global.value = value;
     setFilters(_filters);
     setGlobalFilterValue(value);
   };
@@ -53,8 +53,8 @@ export default function FiltersTable() {
     );
   }
 
-  const sportItemTemplate = (option) => <span>{option.label}</span>;
-  const sportRowFilterTemplate = (options) => (
+  const sportItemTemplate = (option: any) => <span>{option.label}</span>;
+  const sportRowFilterTemplate = (options: any) => (
     <MultiSelect
       value={options.value}
       options={[
@@ -130,7 +130,7 @@ export default function FiltersTable() {
   );
 
   return (
-    <div className='w-full max-w-full border border-[#dfe7ef] rounded-xl p-8 bg-white shadow-md dark:bg-[#2b323d] dark:border-neutral-400'>
+    <div className='w-full max-w-full rounded-xl border border-[#dfe7ef] bg-white p-8 shadow-md dark:border-neutral-400 dark:bg-[#2b323d]'>
       <DataTable
         header={TableHeader}
         virtualScrollerOptions={{ itemSize: 46 }}
@@ -151,7 +151,7 @@ export default function FiltersTable() {
         sortMode='single'
         sortField='athlete' // <--- pre-sort by
         sortOrder={1}
-        removableSort={true} // <--- defaults to false. When removableSort is present, the third click removes the sorting from the column.
+        removableSort // <--- defaults to false. When removableSort is present, the third click removes the sorting from the column.
         // ######
         // Misc.:
         // ######

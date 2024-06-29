@@ -1,4 +1,11 @@
-export default function DefaultFilter({ table, column }) {
+type DefaultFilterProps = {
+  table: any;
+  column: any;
+};
+
+export default function DefaultFilter(props: DefaultFilterProps) {
+  const { table, column } = props;
+
   const firstValue = table.getPreFilteredRowModel().flatRows[0]?.getValue(column.id);
 
   const columnFilterValue = column.getFilterValue();
@@ -8,14 +15,15 @@ export default function DefaultFilter({ table, column }) {
       <input
         type='number'
         value={columnFilterValue?.[0] ?? ''}
-        onChange={(e) => column.setFilterValue((old) => [e.target.value, old?.[1]])}
+        onChange={(e) => column.setFilterValue((old: any) => [e.target.value, old?.[1]])}
         placeholder='Min'
         className='w-24 rounded border shadow'
       />
+
       <input
         type='number'
         value={columnFilterValue?.[1] ?? ''}
-        onChange={(e) => column.setFilterValue((old) => [old?.[0], e.target.value])}
+        onChange={(e) => column.setFilterValue((old: any) => [old?.[0], e.target.value])}
         placeholder='Max'
         className='w-24 rounded border shadow'
       />
