@@ -69,7 +69,6 @@ export default function PaginationTable() {
     const selectAll = event.checked;
 
     if (selectAll) {
-      debugger;
       CustomerService.getCustomers().then((data: any) => {
         setSelectAll(true);
         setSelectedCustomers(data.customers);
