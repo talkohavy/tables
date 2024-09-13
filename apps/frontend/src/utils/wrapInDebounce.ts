@@ -1,5 +1,5 @@
 function wrapInDebounce(fnToRun: (props?: any) => any, milliseconds: number = 300) {
-  let timerId: NodeJS.Timeout | null;
+  let timerId: any;
 
   return (...args: any[]) => {
     if (timerId) clearTimeout(timerId);
